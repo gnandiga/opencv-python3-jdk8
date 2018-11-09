@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM ubuntu:bionic
 
 RUN apt-get update && \
         apt-get install -y \
@@ -16,12 +16,14 @@ RUN apt-get update && \
         libpng-dev \
         libtiff-dev \
         libavformat-dev \
-        libpq-dev
-
+        libpq-dev \
+        openjdk-8-jdk \
+        ant \
+        python3.7 \
+        python-pip \
+        python-dev 
+        
 RUN pip install numpy
-
-RUN apt-get install -y openjdk-8-jdk
-RUN apt-get install -y ant
 
 WORKDIR /
 ENV JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64/'
